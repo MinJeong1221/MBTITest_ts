@@ -5,21 +5,24 @@ import { Button, Image } from 'react-bootstrap';
 import DogImage from '../assets/dog/dog.jpg';
 import { useNavigate } from 'react-router-dom';
 
+import Header from '../components/Header';
+
 function MainPage(): React.ReactElement {
   const navigate = useNavigate();
+  const num = 0;
 
   const handleClickButton = () => [navigate('/question')];
   return (
     <>
       <Wrapper>
-        <Header>예비집사 판별기</Header>
+        <Header type="header" questionNum={0} />
         <ContentsWrapper>
           <Title>나에게 맞는 주인님은?!</Title>
           <LogImage>
             <Image className="rounded-circle" src={DogImage} width={350} />
           </LogImage>
-          <Desc>MBTI기반으로 하는 나랑 잘맞는 고양이 찾기!</Desc>
-          <Desc>내가 집사가 되서 고양이를 키운다면???</Desc>
+          <Desc>MBTI기반으로 하는 나랑 잘맞는 강아지 찾기!</Desc>
+          <Desc>내가 강아지 주인이 되어서 강아지를 키운다면???</Desc>
           <Button
             variant="danger"
             onClick={handleClickButton}
@@ -40,14 +43,6 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'jalnan';
-`;
-const Header = styled.div`
-  background: #ffc;
-  font-size: 40px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
   font-family: 'jalnan';
 `;
 const ContentsWrapper = styled.div`

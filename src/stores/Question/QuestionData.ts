@@ -55,7 +55,7 @@ export const QuestionData: IQuestion[] = [
   },
   {
     id: 8,
-    title: '강아지가 아파서 병원을 고르려고 리부를 보았다. 내가 갈 병원은?',
+    title: '강아지가 아파서 병원을 고르려고 리qb를 보았다. 내가 갈 병원은?',
     answera: '성과가 중요하지! 좋은 성과를 낸 병원',
     answerb: '사람이 중요하지! 원장님의 성격이 좋다고 되어있는 병원',
     type: 'TF',
