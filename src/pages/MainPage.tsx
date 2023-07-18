@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button, Image } from 'react-bootstrap';
 
-import CatImage from '../assets/cat.jpg';
+import DogImage from '../assets/dog/dog.jpg';
 import { useNavigate } from 'react-router-dom';
 
 function MainPage(): React.ReactElement {
@@ -16,12 +16,7 @@ function MainPage(): React.ReactElement {
         <ContentsWrapper>
           <Title>나에게 맞는 주인님은?!</Title>
           <LogImage>
-            <Image
-              className="rounded-circle"
-              src={CatImage}
-              width={350}
-              height={350}
-            />
+            <Image className="rounded-circle" src={DogImage} width={350} />
           </LogImage>
           <Desc>MBTI기반으로 하는 나랑 잘맞는 고양이 찾기!</Desc>
           <Desc>내가 집사가 되서 고양이를 키운다면???</Desc>
@@ -71,7 +66,6 @@ const LogImage = styled.div`
   height: 200;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 20px;
 `;
 const Desc = styled.div`
   font-size: 20px;
