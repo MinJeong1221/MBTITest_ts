@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 import { QuestionData } from '../stores/Question/QuestionData';
 import Header from '../components/Header';
@@ -37,7 +37,13 @@ function QuestionPage(): React.ReactElement {
       setQuestionNum(questionNum + 1);
     } else {
       //마지막 문제일 경우
-      navigator('/result');
+      const mbti = 'ENTJ';
+      navigator({
+        pathname: '/result',
+        search: `?${createSearchParams({
+          mbti: mbti,
+        })}`,
+      });
     }
   };
 

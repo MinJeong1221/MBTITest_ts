@@ -9,7 +9,6 @@ import Header from '../components/Header';
 
 function MainPage(): React.ReactElement {
   const navigate = useNavigate();
-  const num = 0;
 
   const handleClickButton = () => [navigate('/question')];
   return (
