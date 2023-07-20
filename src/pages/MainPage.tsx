@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #ccc;
   font-family: 'jalnan';
 `;
 const ContentsWrapper = styled.div`
@@ -62,5 +63,5 @@ const LogImage = styled.div`
   margin-bottom: 20px;
 `;
 const Desc = styled.div`
-  font-size: 20px;
+  font-size: 15px;
 `;

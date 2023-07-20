@@ -37,7 +37,15 @@ function QuestionPage(): React.ReactElement {
       setQuestionNum(questionNum + 1);
     } else {
       //마지막 문제일 경우
-      const mbti = 'ENTJ';
+      const mbti = newScore.reduce(
+        (acc, curr) =>
+          acc +
+          (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2)),
+        '',
+      );
+
+      console.log({ mbti });
+
       navigator({
         pathname: '/result',
         search: `?${createSearchParams({
@@ -84,6 +92,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #ccc;
   font-family: 'jalnan';
 `;
 const ContentsWrapper = styled.div`

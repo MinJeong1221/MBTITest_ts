@@ -42,8 +42,8 @@ export const QuestionData: IQuestion[] = [
   {
     id: 6,
     title: '강아지 밥을 주려고한다. 나의 방법은?',
-    answera: '눈대중으로 대충 이정도면 되겠지? 하고 준다.',
     answerb: '저울이나 스푼으로 정확한 계량을 해서 준다.',
+    answera: '눈대중으로 대충 이정도면 되겠지? 하고 준다.',
     type: 'SN',
   },
   {
