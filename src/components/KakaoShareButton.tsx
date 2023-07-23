@@ -3,7 +3,13 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { IResult } from '../stores/Result/types';
 
-const Kakao = (window as any).Kakao;
+const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_KEY;
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 interface Props {
   data: IResult;
@@ -14,13 +20,13 @@ function KakaoShareButton(props: Props) {
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
-    if (!Kakao.isInitialized()) {
-      Kakao.init(process.env.KAKAO_API_KEY);
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(KAKAO_API_KEY);
     }
   }, []);
 
   const sharekakao = () => {
-    Kakao.Share.sendDefault({
+    window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: '예비 강아지주인 판별기 결과',
