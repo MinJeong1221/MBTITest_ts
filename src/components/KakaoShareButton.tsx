@@ -15,7 +15,7 @@ function KakaoShareButton(props: Props) {
 
   React.useEffect(() => {
     if (!Kakao.isInitialized()) {
-      Kakao.init('KAKAO_API_KEY');
+      Kakao.init(process.env.KAKAO_API_KEY);
     }
   }, []);
 
