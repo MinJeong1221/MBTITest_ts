@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Button } from 'react-bootstrap';
 import { IResult } from '../stores/Result/types';
+
+const Kakao = (window as any).Kakao;
 
 interface Props {
   data: IResult;
 }
 
-const Kakao = (Window as any).Kakao;
-
 function KakaoShareButton(props: Props) {
   const url = 'https://dogmbti-test-ts.netlify.app';
   const resultUrl = window.location.href;
 
-  useEffect(() => {
-    Kakao.init('091978aaa080d6481ed3f179e9614b6d');
+  React.useEffect(() => {
+    if (!Kakao.isInitialized()) {
+      Kakao.init('KAKAO_API_KEY');
+    }
   }, []);
 
   const sharekakao = () => {
@@ -40,13 +42,6 @@ function KakaoShareButton(props: Props) {
           link: {
             mobileWebUrl: url,
             webUrl: url,
-          },
-        },
-        {
-          title: '앱으로 이동',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
           },
         },
       ],

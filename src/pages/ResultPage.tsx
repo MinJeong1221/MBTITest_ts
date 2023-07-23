@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Image, Button } from 'react-bootstrap';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { ResultData } from '../stores/Result/ResultData';
 import Header from '../components/Header';
@@ -26,6 +26,7 @@ function Result(): React.ReactElement {
   const friendDog = ResultData.find(
     (frienddog) => frienddog.best === testResult?.mbti,
   );
+  const navigate = useNavigate();
   return (
     <>
       <Wrapper>
@@ -53,6 +54,7 @@ function Result(): React.ReactElement {
             <Button
               className="btn-danger"
               style={{ width: 170, marginTop: 20, marginRight: 20 }}
+              onClick={() => navigate('/')}
             >
               테스트 다시하기
             </Button>
