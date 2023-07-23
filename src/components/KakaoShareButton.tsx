@@ -19,7 +19,7 @@ function KakaoShareButton(props: Props) {
 
   React.useEffect(() => {
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+      window.Kakao.init('1b21ef0d2954260ce9373c725198e67d');
     }
   }, []);
 
