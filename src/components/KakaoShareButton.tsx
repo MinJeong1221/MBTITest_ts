@@ -5,11 +5,7 @@ import { IResult } from '../stores/Result/types';
 
 const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_KEY;
 
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
+const Kakao = (window as any).Kakao;
 
 interface Props {
   data: IResult;
@@ -20,13 +16,13 @@ function KakaoShareButton(props: Props) {
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(KAKAO_API_KEY);
+    if (!Kakao.isInitialized()) {
+      Kakao.init(KAKAO_API_KEY);
     }
   }, []);
 
   const sharekakao = () => {
-    window.Kakao.Share.sendDefault({
+    Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: '예비 강아지주인 판별기 결과',
