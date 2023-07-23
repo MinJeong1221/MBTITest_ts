@@ -46,8 +46,8 @@ export const ResultData: IResult[] = [
     id: 4,
     name: '시베리안 허스키(SiberianHusky)',
     mbti: 'INFP',
-    best: 'ENFJ',
-    desc: 'ENFJ랑 완전 천생연분!!',
+    best: 'ENTJ',
+    desc: 'ENTJ랑 완전 천생연분!!',
     img: `${SiberianHusky}`,
   },
   {

@@ -1,17 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from 'react-bootstrap';
+import { Image, Button } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 
 import { ResultData } from '../stores/Result/ResultData';
 import Header from '../components/Header';
 import { IResult } from '../stores/Result/types';
+import KakaoShareButton from '../components/KakaoShareButton';
 
 function Result(): React.ReactElement {
   const [searchParmas] = useSearchParams();
   const mbti = searchParmas.get('mbti'); //나의 MBTI
 
-  const testResult = ResultData.find((dog: IResult) => dog.best === mbti);
+  const testResult: IResult = ResultData.find(
+    (dog: IResult) => dog.best === mbti,
+  ) ?? {
+    id: 0,
+    name: '',
+    best: '',
+    desc: '',
+    img: '',
+    mbti: '',
+  };
   // console.log({ TestResult });
   const friendDog = ResultData.find(
     (frienddog) => frienddog.best === testResult?.mbti,
@@ -37,9 +47,17 @@ function Result(): React.ReactElement {
             {testResult?.name}은 {testResult?.best}와 찰떡궁합!!
           </Desc>
           <BestDesc>
-            나온 강아지와 잘 맞는 형제 강아지로는{' '}
-            {testResult?.best === friendDog?.mbti}형인 {friendDog?.name}입니다.
+            나온 강아지와 잘 맞는 형제 강아지로는 {friendDog?.name}입니다.
           </BestDesc>
+          <ButtonWaper>
+            <Button
+              className="btn-danger"
+              style={{ width: 170, marginTop: 20, marginRight: 20 }}
+            >
+              테스트 다시하기
+            </Button>
+            <KakaoShareButton data={testResult} />
+          </ButtonWaper>
         </ContentsWrapper>
       </Wrapper>
     </>
@@ -80,4 +98,10 @@ const Desc = styled.div`
 const BestDesc = styled.div`
   font-size: 20px;
   color: blue;
+`;
+const ButtonWaper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 `;
