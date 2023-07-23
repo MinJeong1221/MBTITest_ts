@@ -3,8 +3,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { IResult } from '../stores/Result/types';
 
-const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_KEY;
-
 const Kakao = (window as any).Kakao;
 
 interface Props {
@@ -17,7 +15,7 @@ function KakaoShareButton(props: Props) {
 
   React.useEffect(() => {
     if (!Kakao.isInitialized()) {
-      Kakao.init(KAKAO_API_KEY);
+      Kakao.init(process.env.REACT_APP_KAKAO_KEY);
     }
   }, []);
 
